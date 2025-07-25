@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 const selectedProduct = [
   {
     name: "Stylish Jacket",
@@ -89,6 +90,21 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select a size and color before adding to cart", {
+        duration: 1000,
+      });
+      return;
+    }
+    setButtonDisabled(true);
+    setTimeout(() => {
+      toast.success("Product added to cart!", {
+        duration: 1000,
+      });
+      setButtonDisabled(false);
+    }, 500);
+  };
   useEffect(() => {
     if (product?.images?.length > 0) {
       setMainImg(product.images[0].url);
@@ -213,8 +229,16 @@ const ProductDetail = () => {
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-2 px-6 rounded w-full mb-4">
-              ADD TO CART
+            <button
+              onClick={handleAddToCart}
+              disabled={isButtonDisabled}
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${
+                isButtonDisabled
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-gray-500"
+              }`}
+            >
+              {isButtonDisabled ? "adding..." : "ADD TO CART"}
             </button>
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4">Characteristics:</h3>
