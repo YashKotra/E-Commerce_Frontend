@@ -27,15 +27,30 @@ const Navbar = () => {
 
       {/* Center - Navigation Links */}
       <div className="hidden md:flex space-x-6">
-        {["Men", "Women", "Topwear"].map((category) => (
-          <Link
-            key={category}
-            to="#"
-            className="text-gray-700 hover:text-black text-sm font-medium uppercase"
-          >
-            {category}
-          </Link>
-        ))}
+        <Link
+          to="/collections/all"
+          className="text-gray-700 hover:text-black text-sm font-medium uppercase"
+        >
+          MEN
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-700 hover:text-black text-sm font-medium uppercase"
+        >
+          WOMEN
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-700 hover:text-black text-sm font-medium uppercase"
+        >
+          TOP WEAR
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-700 hover:text-black text-sm font-medium uppercase"
+        >
+          BOTTOM WEAR
+        </Link>
       </div>
 
       {/* Right Icons */}

@@ -108,7 +108,7 @@ const NewArrivals = () => {
 
   return (
     <section className="py-16 px-4 lg:px-0">
-      <div className="w-full py-10 bg-gray-50">
+      <div className="w-full py-10 bg-white-50">
         <div className="container mx-auto text-center relative px-4">
           <h2 className="text-3xl font-bold mb-4">Explore New Arrivals</h2>
           <p className="text-lg text-gray-600 mb-8">
