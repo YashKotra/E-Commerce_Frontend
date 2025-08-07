@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
 const MyOrdersPage = () => {
+  const navigate = useNavigate();
+
+  const handleRowClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
   const [orders, setOrders] = useState([
     {
       img: "https://picsum.photos/400/300?random=1",
@@ -50,10 +55,10 @@ const MyOrdersPage = () => {
   ]);
 
   return (
-    <div>
-      <h3 className="text-xl font-semibold mb-4">Recent Orders</h3>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+      <h3 className=" ml-2 text-xl font-semibold mb-4">My Orders</h3>
       <div>
-        <table className="min-w-full">
+        <table className="min-w-full rounded-lg">
           <thead className="bg-gray-50">
             <tr>
               {[
@@ -76,7 +81,11 @@ const MyOrdersPage = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {orders.map((order) => (
-              <tr key={order.id}>
+              <tr
+                key={order.id}
+                onClick={() => handleRowClick(order.id)}
+                className="border-b hover:border-gray-50 cursor-pointer"
+              >
                 <td className="px-4 py-2 text-sm">
                   <img
                     src={order.img}
