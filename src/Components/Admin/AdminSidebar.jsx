@@ -1,11 +1,6 @@
 import React from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import {
-  FaTachometerAlt,
-  FaUsers,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa";
+import { FaTachometerAlt, FaUsers, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { FaBoxOpen, FaClipboardList, FaStore } from "react-icons/fa6";
 
 const AdminSidebar = ({ toggleSideBar }) => {
@@ -19,7 +14,7 @@ const AdminSidebar = ({ toggleSideBar }) => {
     { label: "Users", icon: <FaUsers />, path: "/admin/users" },
     { label: "Products", icon: <FaBoxOpen />, path: "/admin/products" },
     { label: "Orders", icon: <FaClipboardList />, path: "/admin/orders" },
-    { label: "Shop", icon: <FaStore />, path: "/admin/shop" },
+    { label: "Shop", icon: <FaStore />, path: "/" },
     { label: "Settings", icon: <FaCog />, path: "/admin/settings" },
   ];
 
@@ -29,7 +24,10 @@ const AdminSidebar = ({ toggleSideBar }) => {
       <div>
         {/* Logo */}
         <div className="mb-6">
-          <Link to="/admin" className="text-2xl font-semibold italic text-white">
+          <Link
+            to="/admin"
+            className="text-2xl font-semibold italic text-white"
+          >
             Clothing.
           </Link>
         </div>
